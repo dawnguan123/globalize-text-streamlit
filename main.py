@@ -41,14 +41,14 @@ template = """
 
 
 # 读取环境变量 "OPENAI_API_KEY"
-openai_api_key = os.getenv("OPENAI_API_KEY")
+#openai_api_key = os.getenv("OPENAI_API_KEY")
 
 prompt = PromptTemplate(
 	input_variables = ["tone","dialect","email"],
 	template = template
 )
 
-def load_LLM():
+def load_LLM(openai_api_key):
 	"""Logic for loading the chain you want to use should go here."""
 	llm = OpenAI(temperature=.7, openai_api_key=openai_api_key)
 	return llm
@@ -95,6 +95,8 @@ if email_input:
 	
 	formatted_email = llm(prompt_with_email) 
 	st.write(formatted_email)
+	
+#git clone https://github.com/dawnguan123/REPOSITORY.git
 
 
 
