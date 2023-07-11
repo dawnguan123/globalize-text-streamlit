@@ -91,11 +91,11 @@ st.markdown("## Your Converted Email:")
 
 if email_input:
 
-    if not openai_api_key:
+    if not st.secrets["openai_api_key"]:
         st.warning('Please insert OpenAI API Key. Instructions [here](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)', icon="⚠️")
         st.stop()
 
-    llm = load_LLM(openai_api_key=openai_api_key)
+    llm = load_LLM(openai_api_key=st.secrets["openai_api_key"])
 
     prompt_with_email = prompt.format(tone=option_tone, dialect=option_dialect, email=email_input)
 
