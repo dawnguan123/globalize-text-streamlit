@@ -53,7 +53,7 @@ def load_LLM(openai_api_key):
 	llm = OpenAI(temperature=.7, openai_api_key=openai_api_key)
 	return llm
 
-llm = load_LLM()	
+llm = load_LLM(openai_api_key)	
 
 
 st.set_page_config(page_title="Globalize Email", page_icon=":robot:")
